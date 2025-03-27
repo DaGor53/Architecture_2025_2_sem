@@ -1,10 +1,12 @@
-FROM python:3.9
+FROM python:3.10
 
 WORKDIR /app
 
 COPY . /app
 
-RUN pip install --no-cache-dir fastapi uvicorn pydantic jose passlib[bcrypt] typing datetime passlib 
+RUN pip install --no-cache-dir fastapi uvicorn pydantic jose passlib[bcrypt] typing datetime python-multipart
+
+RUN pip install --upgrade python-jose  
 
 EXPOSE 8000
 
