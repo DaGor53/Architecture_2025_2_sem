@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  registration_sys:
+    build:
+      context: .
+      dockerfile: Dockerfile.registration_sys  
+    container_name: registration_sys
+    ports:
+      - "8001:8000" 
+    environment:
+      - ENV=development
+    networks:
+      - app-network
+
+  doc_manage_sys:
+    build:
+      context: .
+      dockerfile: Dockerfile.doc_manage_sys  
+    container_name: doc_manage_sys
+    ports:
+      - "8002:8000" 
+    environment:
+      - ENV=development
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
