@@ -1,0 +1,142 @@
+[
+    {
+      "first_name": "Carl",
+      "last_name": "Lowe",
+      "role": "admin",
+      "password": "carl123",
+      "email": "Carl_Lowe6822@uagvw.store"
+    },
+    {
+      "first_name": "Hank",
+      "last_name": "Allcott",
+      "role": "user",
+      "password": "hank123",
+      "email": "Hank_Allcott5668@bcfhs.name"
+    },
+    {
+      "first_name": "Matt",
+      "last_name": "Wallace",
+      "role": "user",
+      "password": "matt123",
+      "email": "Matt_Wallace5066@bcfhs.video"
+    },
+    {
+      "first_name": "Melinda",
+      "last_name": "Gunn",
+      "role": "user",
+      "password": "melinda123",
+      "email": "Melinda_Gunn1670@lyvnc.ca"
+    },
+    {
+      "first_name": "Jazmin",
+      "last_name": "Seymour",
+      "role": "user",
+      "password": "jazmin123",
+      "email": "Jazmin_Seymour5523@nanoff.info"
+    },
+    {
+      "first_name": "William",
+      "last_name": "Rees",
+      "role": "user",
+      "password": "william123",
+      "email": "William_Rees7294@urn0m.video"
+    },
+    {
+      "first_name": "Jasmine",
+      "last_name": "Newton",
+      "role": "user",
+      "password": "jasmine123",
+      "email": "Jasmine_Newton7536@cdpfn.property"
+    },
+    {
+      "first_name": "William",
+      "last_name": "Norman",
+      "role": "user",
+      "password": "william123",
+      "email": "William_Norman4908@ckzyi.us"
+    },
+    {
+      "first_name": "Makena",
+      "last_name": "Freeburn",
+      "role": "user",
+      "password": "makena123",
+      "email": "Makena_Freeburn2636@lyvnc.online"
+    },
+    {
+      "first_name": "Carmen",
+      "last_name": "Baker",
+      "role": "user",
+      "password": "carmen123",
+      "email": "Carmen_Baker4663@lyvnc.store"
+    },
+    {
+      "first_name": "Martha",
+      "last_name": "Evans",
+      "role": "user",
+      "password": "martha123",
+      "email": "Martha_Evans2542@evyvh.info"
+    },
+    {
+      "first_name": "Martha",
+      "last_name": "Drew",
+      "role": "user",
+      "password": "martha123",
+      "email": "Martha_Drew6573@lhp4j.center"
+    },
+    {
+      "first_name": "Nicole",
+      "last_name": "Russell",
+      "role": "user",
+      "password": "nicole123",
+      "email": "Nicole_Russell9018@xtwt3.com"
+    },
+    {
+      "first_name": "Julian",
+      "last_name": "Edmonds",
+      "role": "user",
+      "password": "julian123",
+      "email": "Julian_Edmonds9077@bcfhs.space"
+    },
+    {
+      "first_name": "Elisabeth",
+      "last_name": "Cann",
+      "role": "user",
+      "password": "elisabeth123",
+      "email": "Elisabeth_Cann3358@yafr7.us"
+    },
+    {
+      "first_name": "Chelsea",
+      "last_name": "Taylor",
+      "role": "user",
+      "password": "chelsea123",
+      "email": "Chelsea_Taylor5984@karnv.software"
+    },
+    {
+      "first_name": "Savannah",
+      "last_name": "Baker",
+      "role": "user",
+      "password": "savannah123",
+      "email": "Savannah_Baker8238@lhp4j.net"
+    },
+    {
+      "first_name": "Carolyn",
+      "last_name": "Rosenbloom",
+      "role": "user",
+      "password": "carolyn123",
+      "email": "Carolyn_Rosenbloom6899@iaart.directory"
+    },
+    {
+      "first_name": "Janice",
+      "last_name": "Devonport",
+      "role": "user",
+      "password": "janice123",
+      "email": "Janice_Devonport357@mpibr.name"
+    },
+    {
+      "first_name": "Sage",
+      "last_name": "Phillips",
+      "role": "user",
+      "password": "sage123",
+      "email": "Sage_Phillips7565@iscmr.info"
+    }
+  ]

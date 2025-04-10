@@ -1,0 +1,61 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:14
+    container_name: db
+    environment:
+      POSTGRES_USER: stud
+      POSTGRES_PASSWORD: stud
+      POSTGRES_DB: archdb
+      PGDATA: /data/postgres
+    volumes:
+      - db:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - app-network
+      
+  load_json:
+    depends_on:
+        - db
+    build:
+      context: .
+      dockerfile: Dockerfile.load_json
+    container_name: load_json
+    environment:
+      - ENV=development
+    networks:
+      - app-network
+
+  registration_sys:
+    build:
+      context: .
+      dockerfile: Dockerfile.registration_sys  
+    container_name: registration_sys
+    ports:
+      - "8001:8000" 
+    environment:
+      - ENV=development
+    networks:
+      - app-network
+
+  doc_manage_sys:
+    build:
+      context: .
+      dockerfile: Dockerfile.doc_manage_sys  
+    container_name: doc_manage_sys
+    ports:
+      - "8002:8000" 
+    environment:
+      - ENV=development
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  db:
+    driver: local
