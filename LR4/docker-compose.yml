@@ -1,0 +1,51 @@
+version: '3'
+
+services:
+  mongodb:
+    image: mongo:5.0
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - app-network
+
+  upload_docs:
+    depends_on:
+    - mongodb
+    build:
+      context: .
+      dockerfile: Dockerfile.upload_docs
+    container_name: upload_docs
+    environment:
+      - MONGO_URI=mongodb://stud:stud@mongodb:27017   
+    networks:
+    - app-network
+
+  reports_mongo:
+      build:
+        context: .
+        dockerfile: Dockerfile.reports_mongo 
+      container_name: reports_mongo
+      ports:
+        - 8000:8000 
+      depends_on:
+        - mongodb
+      environment:
+        - MONGO_URI=mongodb://stud:stud@mongodb:27017  
+      restart: always  
+      volumes:
+      - ./downloads:/app/downloads 
+      networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mongodb_data:
+    driver: local
+
+  
