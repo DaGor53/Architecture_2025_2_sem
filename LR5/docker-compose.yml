@@ -1,0 +1,119 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:14
+    container_name: db
+    environment:
+      POSTGRES_USER: stud
+      POSTGRES_PASSWORD: stud
+      POSTGRES_DB: archdb
+      PGDATA: /data/postgres
+    volumes:
+      - db:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - app-network
+  
+  cache:
+    image: redis:7
+    container_name: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - app-network
+    depends_on:
+    - db
+
+  load_json:
+    depends_on:
+        - db
+    build:
+      context: .
+      dockerfile: Dockerfile.load_json
+    container_name: load_json
+    environment:
+      - ENV=development
+    networks:
+      - app-network
+
+  save_token:
+    depends_on:
+        - db
+        - registration_sys
+    build:
+      context: .
+      dockerfile: Dockerfile.save_token
+    container_name: save_token
+    environment:
+      - ENV=development
+    networks:
+      - app-network
+    volumes:
+      - shared:/shared
+
+  filldb:
+    depends_on:
+        - db
+        - registration_sys
+    build:
+      context: .
+      dockerfile: Dockerfile.filldb
+    container_name: filldb
+    environment:
+      - ENV=development
+    networks:
+      - app-network
+
+  registration_sys:
+    build:
+      context: .
+      dockerfile: Dockerfile.registration_sys  
+    container_name: registration_sys
+    ports:
+      - "8001:8000" 
+    environment:
+      - ENV=development
+    networks:
+      - app-network
+    depends_on:
+    - db
+
+  doc_manage_sys:
+    build:
+      context: .
+      dockerfile: Dockerfile.doc_manage_sys  
+    container_name: doc_manage_sys
+    ports:
+      - "8002:8000" 
+    environment:
+      - ENV=development
+    networks:
+      - app-network
+    depends_on:
+    - db
+  
+  wrk-test:
+    build:
+      context: .
+      dockerfile: Dockerfile.get
+    container_name: wrk-test
+    depends_on:
+      - registration_sys
+    networks:
+      - app-network
+    command: -d 20 -t 20 -c 20 --latency -s ./get.lua http://host.docker.internal:8001
+    volumes:
+      - shared:/shared
+    restart: always
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  db:
+    driver: local
+  shared:
+    driver: local

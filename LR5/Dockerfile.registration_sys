@@ -1,0 +1,13 @@
+FROM python:3.10
+
+WORKDIR /app
+
+COPY . /app
+
+RUN pip install --no-cache-dir fastapi uvicorn pydantic jose passlib typing datetime python-multipart sqlalchemy psycopg2 pydantic[email] redis bcrypt==4.0.1 
+
+RUN pip install --upgrade python-jose  
+
+EXPOSE 8000
+
+CMD ["uvicorn", "registration_sys:app", "--host", "0.0.0.0", "--port", "8000"]

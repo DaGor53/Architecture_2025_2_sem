@@ -1,0 +1,9 @@
+FROM williamyeh/wrk
+
+RUN apk add --no-cache lua5.3
+
+COPY get.lua /wrk/get.lua
+
+WORKDIR /wrk
+
+
